@@ -19,6 +19,17 @@ const NoteScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [newNote, setNewNote] = useState("");
 
+  // Add note before API integration
+  const addNote = () => {
+    if (newNote.trim() === "") return;
+    setNotes((prevNotes) => [
+      ...prevNotes,
+      { id: Date.now.toString(), text: newNote },
+    ]);
+
+    setNewNote("");
+    setModalVisible(false);
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -61,7 +72,7 @@ const NoteScreen = () => {
               >
                 <Text style={styles.cancelButtonText}>Cancel</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.saveButton}>
+              <TouchableOpacity style={styles.saveButton} onPress={addNote}>
                 <Text style={styles.saveButtonText}>Save</Text>
               </TouchableOpacity>
             </View>
@@ -98,6 +109,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#c4b5fd",
     borderRadius: 8,
     alignItems: "center",
+  },
+  addButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
   modalOverlay: {
     flex: 1,
@@ -152,10 +168,6 @@ const styles = StyleSheet.create({
   saveButtonText: {
     color: "#fff",
     fontSize: 16,
-  },
-  addButtonText: {
-    color: "#fff",
-    fontSize: 18,
   },
 });
 
