@@ -25,6 +25,8 @@ const NoteScreen = () => {
       setNotes(response.data);
       setError(null);
     }
+
+    setLoading(false);
   };
 
   // Add note before API integration
