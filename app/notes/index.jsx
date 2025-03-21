@@ -13,7 +13,7 @@ const NoteScreen = () => {
 
   useEffect(() => {
     fetchNotes();
-  });
+  }, []);
 
   const fetchNotes = async () => {
     setLoading(true);
@@ -29,13 +29,16 @@ const NoteScreen = () => {
     setLoading(false);
   };
 
-  // Add note before API integration
-  const addNote = () => {
+  // Add note feature after API integration
+  const addNote = async () => {
     if (newNote.trim() === "") return;
-    setNotes((prevNotes) => [
-      ...prevNotes,
-      { id: Date.now.toString(), text: newNote },
-    ]);
+
+    const response = await noteService.addNote(newNote);
+    if (response.error) {
+      Alert.alert("Error", response.error);
+    } else {
+      setNotes([...notes, response.data]);
+    }
 
     setNewNote("");
     setModalVisible(false);
