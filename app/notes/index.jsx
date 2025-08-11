@@ -36,7 +36,7 @@ const NoteScreen = () => {
     setLoading(false);
   };
 
-  // Add note feature after API integration
+  // Add note feature added after API integration
   const addNote = async () => {
     if (newNote.trim() === "") return;
 
@@ -51,7 +51,7 @@ const NoteScreen = () => {
     setModalVisible(false);
   };
 
-  // Delete note feature after API integration
+  // Delete note feature added after API integration
   const deleteNote = async (id) => {
     Alert.alert("Delete Note", "Are you sure you want to delete this note?", [
       {
