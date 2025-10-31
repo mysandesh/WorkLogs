@@ -30,16 +30,16 @@ const NoteItem = ({ note, onDelete }) => {
               inputRef.current?.blur();
             }}
           >
-            <Text style={styles.edit}>Save</Text>
+            <Text style={styles.edit}>💾</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity onPress={() => setIsEditing(true)}>
-            <Text style={styles.edit}>Edit</Text>
+            <Text style={styles.edit}>✎</Text>
           </TouchableOpacity>
         )}
 
         <TouchableOpacity onPress={() => onDelete(note.$id)}>
-          <Text style={styles.delete}>X</Text>
+          <Text style={styles.delete}>⌫</Text>
         </TouchableOpacity>
       </View>
     </View>
