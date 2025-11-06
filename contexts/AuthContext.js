@@ -30,4 +30,12 @@ export const AuthProvider = ({ children }) => {
     await checkUser();
     return { success: true };
   };
+
+  const register = async (email, password) => {
+    const response = await authService.register(email, password);
+    if (response?.error) {
+      return response;
+    }
+    return login(email, password); // Auto login after registering
+  };
 };
