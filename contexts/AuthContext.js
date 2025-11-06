@@ -38,4 +38,10 @@ export const AuthProvider = ({ children }) => {
     }
     return login(email, password); // Auto login after registering
   };
+
+  const logout = async () => {
+    await authService.logout();
+    setUser(null);
+    await checkUser();
+  };
 };
