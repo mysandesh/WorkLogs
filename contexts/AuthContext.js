@@ -44,4 +44,18 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     await checkUser();
   };
+
+  return (
+    <AuthProvider.Provider
+      value={{
+        user,
+        login,
+        register,
+        logout,
+        loading,
+      }}
+    >
+      {children}
+    </AuthProvider.Provider>
+  );
 };
