@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthProvider.Provider
+    <AuthContext.Provider
       value={{
         user,
         login,
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
       }}
     >
       {children}
-    </AuthProvider.Provider>
+    </AuthContext.Provider>
   );
 };
 
