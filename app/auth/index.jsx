@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 
 const AuthScreen = () => {
   const [email, setEmail] = useState("");
@@ -10,8 +10,37 @@ const AuthScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text> {isRegistering ? "Sign Up" : "Login"} </Text>
-      <Text>Auth</Text>
+      <Text style={styles.header}> {isRegistering ? "Sign Up" : "Login"} </Text>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#aaa"
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize="none"
+        keyboardType="email-address"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        placeholderTextColor="#aaa"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+
+      {isRegistering && (
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm Password"
+          placeholderTextColor="#aaa"
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          secureTextEntry
+        />
+      )}
     </View>
   );
 };
