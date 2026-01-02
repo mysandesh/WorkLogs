@@ -53,6 +53,13 @@ const AuthScreen = () => {
           {isRegistering ? "Sign Up" : "Login"}
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => setIsRegistering(!isRegistering)}>
+        <Text style={styles.switchText}>
+          {isRegistering
+            ? "Already have an account? Login"
+            : "Don't have an account? Sign Up"}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
