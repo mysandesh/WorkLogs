@@ -11,6 +11,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 const AuthScreen = () => {
   const { login, register } = useAuth();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -36,6 +37,8 @@ const AuthScreen = () => {
       Alert.alert("Error", response.error);
       return;
     }
+
+    router.replace("/notes");
   };
 
   return (
