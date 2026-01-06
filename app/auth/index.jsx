@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useAuth } from "@/contexts/AuthContext";
@@ -62,6 +63,7 @@ const AuthScreen = () => {
         value={password}
         onChangeText={setPassword}
         secureTextEntry
+        textContentType="none"
       />
 
       {isRegistering && (
@@ -72,10 +74,11 @@ const AuthScreen = () => {
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           secureTextEntry
+          textContentType="none"
         />
       )}
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleAuth}>
         <Text style={styles.buttonText}>
           {isRegistering ? "Sign Up" : "Login"}
         </Text>
