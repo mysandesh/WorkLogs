@@ -1,6 +1,6 @@
-# WorkLogs App (React Native)
+# WorkLogs App (React Native with Expo)
 
-This is a WorkLog app built with React Native. It allows users to create, read, update, and delete work-related private notes and store them using [Appwrite](https://apwr.dev/traversyfeb2025). It also uses authentication through Appwrite to allow users to sign up and log in and create private notes.
+This is a WorkLog app built with React Native using Expo. It allows users to create, read, update, and delete work-related private notes and store them using Appwrite. It also uses authentication through Appwrite to allow users to sign up and log in and create private notes.
 
 <img src="/assets/images/screen.png" width="900">
 
@@ -12,7 +12,7 @@ Install the dependencies:
 npm install
 ```
 
-You will need to sign into Appwrite [Here](https://apwr.dev/traversyfeb2025) and create a new project and database and fill in the required details in the `.env` file.
+You will need to sign into Appwrite and create a new project and database and fill in the required details in the `.env` file.
 
 Run the app:
 
